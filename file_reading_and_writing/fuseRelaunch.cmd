@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/apurvan/Projects/sobel-conv-master/file_reading_and_writing/example_file_io_tb_isim_beh.exe" -prj "/home/apurvan/Projects/sobel-conv-master/file_reading_and_writing/example_file_io_tb_beh.prj" "work.example_file_io_tb" 
