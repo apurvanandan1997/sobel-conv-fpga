@@ -52,7 +52,6 @@ begin
     --variable test : character;
     variable v_SPACE     : character;
      variable vGoodRead      : boolean := true;
-	  variable v2GoodRead      : boolean := true;
      variable testing : std_logic :='1';
      
   begin
@@ -64,29 +63,27 @@ begin
         test <= '0';
       readline(file_VECTORS, v_ILINE);
             --WHILE ( r_ADD_TERM1 /= "UUUU") LOOP
-            while (vGoodRead and v2GoodRead ) loop
+            while (vGoodRead ) loop
             read(v_ILINE, vector, vGoodRead);
-            read(v_ILINE, v_SPACE, v2GoodRead); 
+            read(v_ILINE, v_SPACE); 
             --read(v_ILINE, test, vGoodRead);
+        
+ 
+      
         wait for 1 ns;
-        if ((vGoodRead and  v2GoodRead) and( not (v_SPACE = CR))) then
+        if (vGoodRead = true ) then
  
             test <= '0';
         
             write(v_OLINE, vector);
             write(v_OLINE, v_SPACE);
-			elsif(vGoodRead and v2GoodRead and (v_SPACE = CR))
-			then
-			write(v_OLINE, vector);
-            write(v_OLINE, CR);
-			 writeline(file_RESULTS, v_OLINE);
-			 end if;
+            end if;
               
             END LOOP;
             
-           -- vGoodRead := true;
+            vGoodRead := true;
         
-      
+      writeline(file_RESULTS, v_OLINE);
         end loop;
     
  
